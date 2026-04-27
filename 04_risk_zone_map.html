@@ -1,0 +1,3412 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bc9be344f888bb2098df0a534966b3d9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; bottom: 30px; left: 30px; z-index: 1000;
+         background: white; padding: 12px 16px; border-radius: 8px;
+         border: 1px solid #ccc; font-family: Arial; font-size: 13px;">
+      <b>Health Risk Zone</b><br>
+      <span style="color:#2ecc71">&#9679;</span> Low Risk<br>
+      <span style="color:#f39c12">&#9679;</span> Moderate Risk<br>
+      <span style="color:#e67e22">&#9679;</span> High Risk<br>
+      <span style="color:#e74c3c">&#9679;</span> Severe Risk
+    </div>
+    
+    
+            <div class="folium-map" id="map_bc9be344f888bb2098df0a534966b3d9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bc9be344f888bb2098df0a534966b3d9 = L.map(
+                "map_bc9be344f888bb2098df0a534966b3d9",
+                {
+                    center: [20.0, 10.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fe07abd56063020c1c93519c08be0ca0 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fe07abd56063020c1c93519c08be0ca0.addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+            var circle_marker_f0ef015efd154aba13597531c168d615 = L.circleMarker(
+                [33.93, 67.7],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.397278911564626, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_b2f5fd69dc5e494b2cab6f5b5bd96b36 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_237d6cb4e0fb69da0240c3794cc19ce4 = $(`<div id="html_237d6cb4e0fb69da0240c3794cc19ce4" style="width: 100.0%; height: 100.0%;"><b>Afghanistan</b><br>Avg AQI: <b>96</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 49</div>`)[0];
+                popup_b2f5fd69dc5e494b2cab6f5b5bd96b36.setContent(html_237d6cb4e0fb69da0240c3794cc19ce4);
+            
+        
+
+        circle_marker_f0ef015efd154aba13597531c168d615.bindPopup(popup_b2f5fd69dc5e494b2cab6f5b5bd96b36)
+        ;
+
+        
+    
+    
+            circle_marker_f0ef015efd154aba13597531c168d615.bindTooltip(
+                `<div>
+                     Afghanistan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_44c5265120fc1e1ca7f9a78d30c45b7e = L.circleMarker(
+                [41.15, 20.17],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_0f9d6e08849e87dc0eb0dd5700a55f52 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7248c77b62870164c8e080055d5c4368 = $(`<div id="html_7248c77b62870164c8e080055d5c4368" style="width: 100.0%; height: 100.0%;"><b>Albania</b><br>Avg AQI: <b>68</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 32</div>`)[0];
+                popup_0f9d6e08849e87dc0eb0dd5700a55f52.setContent(html_7248c77b62870164c8e080055d5c4368);
+            
+        
+
+        circle_marker_44c5265120fc1e1ca7f9a78d30c45b7e.bindPopup(popup_0f9d6e08849e87dc0eb0dd5700a55f52)
+        ;
+
+        
+    
+    
+            circle_marker_44c5265120fc1e1ca7f9a78d30c45b7e.bindTooltip(
+                `<div>
+                     Albania
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b71eed28c8bfea9dba46bd10d3aa0a52 = L.circleMarker(
+                [28.03, 1.65],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.877777777777778, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_c350b6fc058a2c651df3ed58d8ec6bac = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_252e3cf484f75c3d2e2711b2e46be585 = $(`<div id="html_252e3cf484f75c3d2e2711b2e46be585" style="width: 100.0%; height: 100.0%;"><b>Algeria</b><br>Avg AQI: <b>88</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 12</div>`)[0];
+                popup_c350b6fc058a2c651df3ed58d8ec6bac.setContent(html_252e3cf484f75c3d2e2711b2e46be585);
+            
+        
+
+        circle_marker_b71eed28c8bfea9dba46bd10d3aa0a52.bindPopup(popup_c350b6fc058a2c651df3ed58d8ec6bac)
+        ;
+
+        
+    
+    
+            circle_marker_b71eed28c8bfea9dba46bd10d3aa0a52.bindTooltip(
+                `<div>
+                     Algeria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_209528b394f7af3b979162670e9e2f22 = L.circleMarker(
+                [-38.41, -63.61],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_96d65190894227818fe3b253ca224910 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_88caa56a09d874434c3834b960f5f6e5 = $(`<div id="html_88caa56a09d874434c3834b960f5f6e5" style="width: 100.0%; height: 100.0%;"><b>Argentina</b><br>Avg AQI: <b>28</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 68</div>`)[0];
+                popup_96d65190894227818fe3b253ca224910.setContent(html_88caa56a09d874434c3834b960f5f6e5);
+            
+        
+
+        circle_marker_209528b394f7af3b979162670e9e2f22.bindPopup(popup_96d65190894227818fe3b253ca224910)
+        ;
+
+        
+    
+    
+            circle_marker_209528b394f7af3b979162670e9e2f22.bindTooltip(
+                `<div>
+                     Argentina
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9e8956b01e285f51f56f112146ce19d7 = L.circleMarker(
+                [40.07, 45.04],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_ad10884b550a5fe0b76dab9ab80c3543 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_b5b6df8a56f6d5602c33134444ba2f30 = $(`<div id="html_b5b6df8a56f6d5602c33134444ba2f30" style="width: 100.0%; height: 100.0%;"><b>Armenia</b><br>Avg AQI: <b>54</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 22</div>`)[0];
+                popup_ad10884b550a5fe0b76dab9ab80c3543.setContent(html_b5b6df8a56f6d5602c33134444ba2f30);
+            
+        
+
+        circle_marker_9e8956b01e285f51f56f112146ce19d7.bindPopup(popup_ad10884b550a5fe0b76dab9ab80c3543)
+        ;
+
+        
+    
+    
+            circle_marker_9e8956b01e285f51f56f112146ce19d7.bindTooltip(
+                `<div>
+                     Armenia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bee76e4239f8b559c8b09a71834170e1 = L.circleMarker(
+                [-25.27, 133.77],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_7b16e1ed6b10594d7f8fa11a84888d3f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0e22c099ad263c5e15891a28acb281f8 = $(`<div id="html_0e22c099ad263c5e15891a28acb281f8" style="width: 100.0%; height: 100.0%;"><b>Australia</b><br>Avg AQI: <b>34</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 85</div>`)[0];
+                popup_7b16e1ed6b10594d7f8fa11a84888d3f.setContent(html_0e22c099ad263c5e15891a28acb281f8);
+            
+        
+
+        circle_marker_bee76e4239f8b559c8b09a71834170e1.bindPopup(popup_7b16e1ed6b10594d7f8fa11a84888d3f)
+        ;
+
+        
+    
+    
+            circle_marker_bee76e4239f8b559c8b09a71834170e1.bindTooltip(
+                `<div>
+                     Australia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_26762b77b8b0f6c12a3b0c9e2be21235 = L.circleMarker(
+                [47.51, 14.55],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_f53e36bfa883572865c114f39b7b3243 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_fab55ede2814d268a90a4b5cfb642cec = $(`<div id="html_fab55ede2814d268a90a4b5cfb642cec" style="width: 100.0%; height: 100.0%;"><b>Austria</b><br>Avg AQI: <b>54</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 68</div>`)[0];
+                popup_f53e36bfa883572865c114f39b7b3243.setContent(html_fab55ede2814d268a90a4b5cfb642cec);
+            
+        
+
+        circle_marker_26762b77b8b0f6c12a3b0c9e2be21235.bindPopup(popup_f53e36bfa883572865c114f39b7b3243)
+        ;
+
+        
+    
+    
+            circle_marker_26762b77b8b0f6c12a3b0c9e2be21235.bindTooltip(
+                `<div>
+                     Austria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cedfd50cbc4f5e037b43af220a1f3a48 = L.circleMarker(
+                [40.14, 47.57],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_d2797c51aeda1d8fe993c665b27f79d4 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2523f454707cdd97bf5ababdb3d7e304 = $(`<div id="html_2523f454707cdd97bf5ababdb3d7e304" style="width: 100.0%; height: 100.0%;"><b>Azerbaijan</b><br>Avg AQI: <b>59</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 38</div>`)[0];
+                popup_d2797c51aeda1d8fe993c665b27f79d4.setContent(html_2523f454707cdd97bf5ababdb3d7e304);
+            
+        
+
+        circle_marker_cedfd50cbc4f5e037b43af220a1f3a48.bindPopup(popup_d2797c51aeda1d8fe993c665b27f79d4)
+        ;
+
+        
+    
+    
+            circle_marker_cedfd50cbc4f5e037b43af220a1f3a48.bindTooltip(
+                `<div>
+                     Azerbaijan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e80d1db95a71a2a27ab61862cdcfaf4 = L.circleMarker(
+                [26.02, 50.55],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.533333333333333, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_3d9da560152b433c5db0b479e1fc61b8 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_be22530532be820f2b2bca80ef3238ee = $(`<div id="html_be22530532be820f2b2bca80ef3238ee" style="width: 100.0%; height: 100.0%;"><b>Bahrain</b><br>Avg AQI: <b>188</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 1</div>`)[0];
+                popup_3d9da560152b433c5db0b479e1fc61b8.setContent(html_be22530532be820f2b2bca80ef3238ee);
+            
+        
+
+        circle_marker_0e80d1db95a71a2a27ab61862cdcfaf4.bindPopup(popup_3d9da560152b433c5db0b479e1fc61b8)
+        ;
+
+        
+    
+    
+            circle_marker_0e80d1db95a71a2a27ab61862cdcfaf4.bindTooltip(
+                `<div>
+                     Bahrain
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6fe8e07e4e16deff54a780c2aff8b049 = L.circleMarker(
+                [23.68, 90.35],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.564166666666667, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_97e56005e8628d33c60eead1d2c0e7b0 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_32be7c6067d58b971e3ae42cdde90138 = $(`<div id="html_32be7c6067d58b971e3ae42cdde90138" style="width: 100.0%; height: 100.0%;"><b>Bangladesh</b><br>Avg AQI: <b>113</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 80</div>`)[0];
+                popup_97e56005e8628d33c60eead1d2c0e7b0.setContent(html_32be7c6067d58b971e3ae42cdde90138);
+            
+        
+
+        circle_marker_6fe8e07e4e16deff54a780c2aff8b049.bindPopup(popup_97e56005e8628d33c60eead1d2c0e7b0)
+        ;
+
+        
+    
+    
+            circle_marker_6fe8e07e4e16deff54a780c2aff8b049.bindTooltip(
+                `<div>
+                     Bangladesh
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f0e75c8b1b8fb258a6d99fd5afa2d830 = L.circleMarker(
+                [50.5, 4.46],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_0c2e4cf613e11bd582bf07dc597b52cb = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_d2c147da5e12a50e9ba28912ec8543f8 = $(`<div id="html_d2c147da5e12a50e9ba28912ec8543f8" style="width: 100.0%; height: 100.0%;"><b>Belgium</b><br>Avg AQI: <b>45</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 284</div>`)[0];
+                popup_0c2e4cf613e11bd582bf07dc597b52cb.setContent(html_d2c147da5e12a50e9ba28912ec8543f8);
+            
+        
+
+        circle_marker_f0e75c8b1b8fb258a6d99fd5afa2d830.bindPopup(popup_0c2e4cf613e11bd582bf07dc597b52cb)
+        ;
+
+        
+    
+    
+            circle_marker_f0e75c8b1b8fb258a6d99fd5afa2d830.bindTooltip(
+                `<div>
+                     Belgium
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_27ff7e01d9c413f14934f2dcdf613f80 = L.circleMarker(
+                [27.51, 90.43],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_d46fda904328b5d65f29d0b5151ec779 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_5df0c873eef7c7cd5e415d219f29a593 = $(`<div id="html_5df0c873eef7c7cd5e415d219f29a593" style="width: 100.0%; height: 100.0%;"><b>Bhutan</b><br>Avg AQI: <b>26</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 2</div>`)[0];
+                popup_d46fda904328b5d65f29d0b5151ec779.setContent(html_5df0c873eef7c7cd5e415d219f29a593);
+            
+        
+
+        circle_marker_27ff7e01d9c413f14934f2dcdf613f80.bindPopup(popup_d46fda904328b5d65f29d0b5151ec779)
+        ;
+
+        
+    
+    
+            circle_marker_27ff7e01d9c413f14934f2dcdf613f80.bindTooltip(
+                `<div>
+                     Bhutan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f3af5f87958145d2a3d5cedc68e2d71 = L.circleMarker(
+                [14.23, -51.92],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_f9f90f2c23a3293743f85cbf18417039 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_dad68d1e213e0825823421bb81b0c0fb = $(`<div id="html_dad68d1e213e0825823421bb81b0c0fb" style="width: 100.0%; height: 100.0%;"><b>Brazil</b><br>Avg AQI: <b>45</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 1562</div>`)[0];
+                popup_f9f90f2c23a3293743f85cbf18417039.setContent(html_dad68d1e213e0825823421bb81b0c0fb);
+            
+        
+
+        circle_marker_6f3af5f87958145d2a3d5cedc68e2d71.bindPopup(popup_f9f90f2c23a3293743f85cbf18417039)
+        ;
+
+        
+    
+    
+            circle_marker_6f3af5f87958145d2a3d5cedc68e2d71.bindTooltip(
+                `<div>
+                     Brazil
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_73e6f85ef52b67c39420caddeef75065 = L.circleMarker(
+                [42.73, 25.48],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_a6e5bdebf63e08e5c57f8eccf78d348b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_330c89da4210d69998f42b6a05a082f3 = $(`<div id="html_330c89da4210d69998f42b6a05a082f3" style="width: 100.0%; height: 100.0%;"><b>Bulgaria</b><br>Avg AQI: <b>54</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 65</div>`)[0];
+                popup_a6e5bdebf63e08e5c57f8eccf78d348b.setContent(html_330c89da4210d69998f42b6a05a082f3);
+            
+        
+
+        circle_marker_73e6f85ef52b67c39420caddeef75065.bindPopup(popup_a6e5bdebf63e08e5c57f8eccf78d348b)
+        ;
+
+        
+    
+    
+            circle_marker_73e6f85ef52b67c39420caddeef75065.bindTooltip(
+                `<div>
+                     Bulgaria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec7e0732a6fae43382cc51e7f598778f = L.circleMarker(
+                [12.56, 104.99],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_a597ae4e7de6189e15f945976c6f7da7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_6092d054ee8265e0e08a5676979ecf06 = $(`<div id="html_6092d054ee8265e0e08a5676979ecf06" style="width: 100.0%; height: 100.0%;"><b>Cambodia</b><br>Avg AQI: <b>45</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 12</div>`)[0];
+                popup_a597ae4e7de6189e15f945976c6f7da7.setContent(html_6092d054ee8265e0e08a5676979ecf06);
+            
+        
+
+        circle_marker_ec7e0732a6fae43382cc51e7f598778f.bindPopup(popup_a597ae4e7de6189e15f945976c6f7da7)
+        ;
+
+        
+    
+    
+            circle_marker_ec7e0732a6fae43382cc51e7f598778f.bindTooltip(
+                `<div>
+                     Cambodia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b2862235d5d70e5bb59cfa1f05641636 = L.circleMarker(
+                [7.36, 12.35],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_561c471efdb6b4dcf5e8f0651d5af79d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_8d9c928b3c38926aed8ad512692545f1 = $(`<div id="html_8d9c928b3c38926aed8ad512692545f1" style="width: 100.0%; height: 100.0%;"><b>Cameroon</b><br>Avg AQI: <b>69</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 64</div>`)[0];
+                popup_561c471efdb6b4dcf5e8f0651d5af79d.setContent(html_8d9c928b3c38926aed8ad512692545f1);
+            
+        
+
+        circle_marker_b2862235d5d70e5bb59cfa1f05641636.bindPopup(popup_561c471efdb6b4dcf5e8f0651d5af79d)
+        ;
+
+        
+    
+    
+            circle_marker_b2862235d5d70e5bb59cfa1f05641636.bindTooltip(
+                `<div>
+                     Cameroon
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e78d4bd8f709749b43bc1b79428e5cb6 = L.circleMarker(
+                [56.13, -106.34],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_b7981e26161db22d2ab41a2957bbd09b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_65ed9b03fb91a609d1e438de5f60a35f = $(`<div id="html_65ed9b03fb91a609d1e438de5f60a35f" style="width: 100.0%; height: 100.0%;"><b>Canada</b><br>Avg AQI: <b>43</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 141</div>`)[0];
+                popup_b7981e26161db22d2ab41a2957bbd09b.setContent(html_65ed9b03fb91a609d1e438de5f60a35f);
+            
+        
+
+        circle_marker_e78d4bd8f709749b43bc1b79428e5cb6.bindPopup(popup_b7981e26161db22d2ab41a2957bbd09b)
+        ;
+
+        
+    
+    
+            circle_marker_e78d4bd8f709749b43bc1b79428e5cb6.bindTooltip(
+                `<div>
+                     Canada
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ecd5e68d4601d43d41a755f069922e21 = L.circleMarker(
+                [-35.67, -71.54],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.85679012345679, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_5f68a34b0510393cb243e6eb814df738 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4c1b5a4ba861ae6f3019a2e50a4a0d06 = $(`<div id="html_4c1b5a4ba861ae6f3019a2e50a4a0d06" style="width: 100.0%; height: 100.0%;"><b>Chile</b><br>Avg AQI: <b>88</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 81</div>`)[0];
+                popup_5f68a34b0510393cb243e6eb814df738.setContent(html_4c1b5a4ba861ae6f3019a2e50a4a0d06);
+            
+        
+
+        circle_marker_ecd5e68d4601d43d41a755f069922e21.bindPopup(popup_5f68a34b0510393cb243e6eb814df738)
+        ;
+
+        
+    
+    
+            circle_marker_ecd5e68d4601d43d41a755f069922e21.bindTooltip(
+                `<div>
+                     Chile
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_76692555ae0e23d8bf0bf9f4e08d5325 = L.circleMarker(
+                [35.86, 104.19],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.46356394129979, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_b84b2b04a70128a5753e2cd22f8c0a47 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_5e8742f41b6b00271ab57d87183374e5 = $(`<div id="html_5e8742f41b6b00271ab57d87183374e5" style="width: 100.0%; height: 100.0%;"><b>China</b><br>Avg AQI: <b>127</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 795</div>`)[0];
+                popup_b84b2b04a70128a5753e2cd22f8c0a47.setContent(html_5e8742f41b6b00271ab57d87183374e5);
+            
+        
+
+        circle_marker_76692555ae0e23d8bf0bf9f4e08d5325.bindPopup(popup_b84b2b04a70128a5753e2cd22f8c0a47)
+        ;
+
+        
+    
+    
+            circle_marker_76692555ae0e23d8bf0bf9f4e08d5325.bindTooltip(
+                `<div>
+                     China
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7da46752fd1a3d6df39b725b757712cb = L.circleMarker(
+                [4.57, -74.29],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_f4dec926f7b49be9386627cf6f53d2cf = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1e22ce461fa3f61c3b6912eb0a5ac6b3 = $(`<div id="html_1e22ce461fa3f61c3b6912eb0a5ac6b3" style="width: 100.0%; height: 100.0%;"><b>Colombia</b><br>Avg AQI: <b>66</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 250</div>`)[0];
+                popup_f4dec926f7b49be9386627cf6f53d2cf.setContent(html_1e22ce461fa3f61c3b6912eb0a5ac6b3);
+            
+        
+
+        circle_marker_7da46752fd1a3d6df39b725b757712cb.bindPopup(popup_f4dec926f7b49be9386627cf6f53d2cf)
+        ;
+
+        
+    
+    
+            circle_marker_7da46752fd1a3d6df39b725b757712cb.bindTooltip(
+                `<div>
+                     Colombia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9a53f64ed388aa4cc793a9d6b3d587c = L.circleMarker(
+                [9.74, -83.75],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_0a0d956225cb6c666bcf40e9df2b9712 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_489ed190532ed7d2cd05a63394c24a98 = $(`<div id="html_489ed190532ed7d2cd05a63394c24a98" style="width: 100.0%; height: 100.0%;"><b>Costa Rica</b><br>Avg AQI: <b>59</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 38</div>`)[0];
+                popup_0a0d956225cb6c666bcf40e9df2b9712.setContent(html_489ed190532ed7d2cd05a63394c24a98);
+            
+        
+
+        circle_marker_b9a53f64ed388aa4cc793a9d6b3d587c.bindPopup(popup_0a0d956225cb6c666bcf40e9df2b9712)
+        ;
+
+        
+    
+    
+            circle_marker_b9a53f64ed388aa4cc793a9d6b3d587c.bindTooltip(
+                `<div>
+                     Costa Rica
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1b39e0873a1eda27c055f51c737ae4e5 = L.circleMarker(
+                [45.1, 15.2],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_fdee79de8d668047fbac7489219179f4 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_bebfc4095c843fec0cfb875eff9cc082 = $(`<div id="html_bebfc4095c843fec0cfb875eff9cc082" style="width: 100.0%; height: 100.0%;"><b>Croatia</b><br>Avg AQI: <b>58</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 31</div>`)[0];
+                popup_fdee79de8d668047fbac7489219179f4.setContent(html_bebfc4095c843fec0cfb875eff9cc082);
+            
+        
+
+        circle_marker_1b39e0873a1eda27c055f51c737ae4e5.bindPopup(popup_fdee79de8d668047fbac7489219179f4)
+        ;
+
+        
+    
+    
+            circle_marker_1b39e0873a1eda27c055f51c737ae4e5.bindTooltip(
+                `<div>
+                     Croatia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_707ed3d1649074ff5e9ad09d2c25ff01 = L.circleMarker(
+                [21.52, -77.78],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_f4152a35cdbfbe784205246067dffdc0 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_920788677f32b2c7389e629fd52df337 = $(`<div id="html_920788677f32b2c7389e629fd52df337" style="width: 100.0%; height: 100.0%;"><b>Cuba</b><br>Avg AQI: <b>63</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 98</div>`)[0];
+                popup_f4152a35cdbfbe784205246067dffdc0.setContent(html_920788677f32b2c7389e629fd52df337);
+            
+        
+
+        circle_marker_707ed3d1649074ff5e9ad09d2c25ff01.bindPopup(popup_f4152a35cdbfbe784205246067dffdc0)
+        ;
+
+        
+    
+    
+            circle_marker_707ed3d1649074ff5e9ad09d2c25ff01.bindTooltip(
+                `<div>
+                     Cuba
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c87c1631bc091f4a79cea266b1de718b = L.circleMarker(
+                [18.73, -70.16],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.205263157894737, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_713b37860c3960b0720f828cd34072b9 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_37a93fad17e98416004dec78adfd5bf2 = $(`<div id="html_37a93fad17e98416004dec78adfd5bf2" style="width: 100.0%; height: 100.0%;"><b>Dominican Republic</b><br>Avg AQI: <b>108</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 38</div>`)[0];
+                popup_713b37860c3960b0720f828cd34072b9.setContent(html_37a93fad17e98416004dec78adfd5bf2);
+            
+        
+
+        circle_marker_c87c1631bc091f4a79cea266b1de718b.bindPopup(popup_713b37860c3960b0720f828cd34072b9)
+        ;
+
+        
+    
+    
+            circle_marker_c87c1631bc091f4a79cea266b1de718b.bindTooltip(
+                `<div>
+                     Dominican Republic
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0cb9c785dc64c9fca5a8c1fb11274f67 = L.circleMarker(
+                [-1.83, -78.18],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_0b8bd847aa61d0032d73bbd56297e180 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2224bfc06ab77ec0e127c5f4a2c3d495 = $(`<div id="html_2224bfc06ab77ec0e127c5f4a2c3d495" style="width: 100.0%; height: 100.0%;"><b>Ecuador</b><br>Avg AQI: <b>45</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 66</div>`)[0];
+                popup_0b8bd847aa61d0032d73bbd56297e180.setContent(html_2224bfc06ab77ec0e127c5f4a2c3d495);
+            
+        
+
+        circle_marker_0cb9c785dc64c9fca5a8c1fb11274f67.bindPopup(popup_0b8bd847aa61d0032d73bbd56297e180)
+        ;
+
+        
+    
+    
+            circle_marker_0cb9c785dc64c9fca5a8c1fb11274f67.bindTooltip(
+                `<div>
+                     Ecuador
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f1c1aad981aa24f7bef92e339b7b11f4 = L.circleMarker(
+                [26.82, 30.8],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.776666666666667, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_6458470598d968df58e8d4a24c6275b5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_eacaaff125aae7f9a2bfe51bf6b0cef5 = $(`<div id="html_eacaaff125aae7f9a2bfe51bf6b0cef5" style="width: 100.0%; height: 100.0%;"><b>Egypt</b><br>Avg AQI: <b>102</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 40</div>`)[0];
+                popup_6458470598d968df58e8d4a24c6275b5.setContent(html_eacaaff125aae7f9a2bfe51bf6b0cef5);
+            
+        
+
+        circle_marker_f1c1aad981aa24f7bef92e339b7b11f4.bindPopup(popup_6458470598d968df58e8d4a24c6275b5)
+        ;
+
+        
+    
+    
+            circle_marker_f1c1aad981aa24f7bef92e339b7b11f4.bindTooltip(
+                `<div>
+                     Egypt
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1ac253129ab782f13662af4e4d80fec7 = L.circleMarker(
+                [13.79, -88.89],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.49090909090909, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_9ccbaa20407e7798a579ba8f7373d471 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_31a02ad5b48d2216c9f4e666192b143a = $(`<div id="html_31a02ad5b48d2216c9f4e666192b143a" style="width: 100.0%; height: 100.0%;"><b>El Salvador</b><br>Avg AQI: <b>97</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 33</div>`)[0];
+                popup_9ccbaa20407e7798a579ba8f7373d471.setContent(html_31a02ad5b48d2216c9f4e666192b143a);
+            
+        
+
+        circle_marker_1ac253129ab782f13662af4e4d80fec7.bindPopup(popup_9ccbaa20407e7798a579ba8f7373d471)
+        ;
+
+        
+    
+    
+            circle_marker_1ac253129ab782f13662af4e4d80fec7.bindTooltip(
+                `<div>
+                     El Salvador
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b7ca5227d85163b4f399d209f0c741bf = L.circleMarker(
+                [9.14, 40.49],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.248780487804878, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_fa8c56eb74d73201dc90c085f8ad1bd1 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_10f844010f91ba94f3e59afcb1d16e86 = $(`<div id="html_10f844010f91ba94f3e59afcb1d16e86" style="width: 100.0%; height: 100.0%;"><b>Ethiopia</b><br>Avg AQI: <b>79</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 82</div>`)[0];
+                popup_fa8c56eb74d73201dc90c085f8ad1bd1.setContent(html_10f844010f91ba94f3e59afcb1d16e86);
+            
+        
+
+        circle_marker_b7ca5227d85163b4f399d209f0c741bf.bindPopup(popup_fa8c56eb74d73201dc90c085f8ad1bd1)
+        ;
+
+        
+    
+    
+            circle_marker_b7ca5227d85163b4f399d209f0c741bf.bindTooltip(
+                `<div>
+                     Ethiopia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3acb2b19178aea6addd452fdb08d776e = L.circleMarker(
+                [61.92, 25.74],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_4697579ded42cba14531378c4ffe578e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_6fa02055019acdcd392f1af5d124f648 = $(`<div id="html_6fa02055019acdcd392f1af5d124f648" style="width: 100.0%; height: 100.0%;"><b>Finland</b><br>Avg AQI: <b>38</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 81</div>`)[0];
+                popup_4697579ded42cba14531378c4ffe578e.setContent(html_6fa02055019acdcd392f1af5d124f648);
+            
+        
+
+        circle_marker_3acb2b19178aea6addd452fdb08d776e.bindPopup(popup_4697579ded42cba14531378c4ffe578e)
+        ;
+
+        
+    
+    
+            circle_marker_3acb2b19178aea6addd452fdb08d776e.bindTooltip(
+                `<div>
+                     Finland
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9d238a47c6f94408485e18fbfe1552d = L.circleMarker(
+                [46.22, 2.21],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_74c5d67aefa645e4f9f26eb48bc91de4 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7c149c3f1aaafbacd6a64ec6826e10ed = $(`<div id="html_7c149c3f1aaafbacd6a64ec6826e10ed" style="width: 100.0%; height: 100.0%;"><b>France</b><br>Avg AQI: <b>53</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 802</div>`)[0];
+                popup_74c5d67aefa645e4f9f26eb48bc91de4.setContent(html_7c149c3f1aaafbacd6a64ec6826e10ed);
+            
+        
+
+        circle_marker_b9d238a47c6f94408485e18fbfe1552d.bindPopup(popup_74c5d67aefa645e4f9f26eb48bc91de4)
+        ;
+
+        
+    
+    
+            circle_marker_b9d238a47c6f94408485e18fbfe1552d.bindTooltip(
+                `<div>
+                     France
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_303ab56a2e7174d24a01c0a15aba72d6 = L.circleMarker(
+                [42.31, 43.35],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_7ada7cabd64169c04fd88f088579137f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e7345b1aecd340f5480cd2f43e649991 = $(`<div id="html_e7345b1aecd340f5480cd2f43e649991" style="width: 100.0%; height: 100.0%;"><b>Georgia</b><br>Avg AQI: <b>41</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 20</div>`)[0];
+                popup_7ada7cabd64169c04fd88f088579137f.setContent(html_e7345b1aecd340f5480cd2f43e649991);
+            
+        
+
+        circle_marker_303ab56a2e7174d24a01c0a15aba72d6.bindPopup(popup_7ada7cabd64169c04fd88f088579137f)
+        ;
+
+        
+    
+    
+            circle_marker_303ab56a2e7174d24a01c0a15aba72d6.bindTooltip(
+                `<div>
+                     Georgia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0dedc4290e38efbe0c1523f17309f311 = L.circleMarker(
+                [51.16, 10.45],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_33943d180513c7c9967326133d2f3f58 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_cf5c594ca08d9f1709a6657811390f9f = $(`<div id="html_cf5c594ca08d9f1709a6657811390f9f" style="width: 100.0%; height: 100.0%;"><b>Germany</b><br>Avg AQI: <b>48</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 1345</div>`)[0];
+                popup_33943d180513c7c9967326133d2f3f58.setContent(html_cf5c594ca08d9f1709a6657811390f9f);
+            
+        
+
+        circle_marker_0dedc4290e38efbe0c1523f17309f311.bindPopup(popup_33943d180513c7c9967326133d2f3f58)
+        ;
+
+        
+    
+    
+            circle_marker_0dedc4290e38efbe0c1523f17309f311.bindTooltip(
+                `<div>
+                     Germany
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3bf1cfba4f1d6c139d5fe40c45cbc8b9 = L.circleMarker(
+                [7.95, -1.02],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_e496f6a74e94b444dfcf64fded48c605 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1cb3903caf288eb2a0648258e7df4890 = $(`<div id="html_1cb3903caf288eb2a0648258e7df4890" style="width: 100.0%; height: 100.0%;"><b>Ghana</b><br>Avg AQI: <b>63</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 58</div>`)[0];
+                popup_e496f6a74e94b444dfcf64fded48c605.setContent(html_1cb3903caf288eb2a0648258e7df4890);
+            
+        
+
+        circle_marker_3bf1cfba4f1d6c139d5fe40c45cbc8b9.bindPopup(popup_e496f6a74e94b444dfcf64fded48c605)
+        ;
+
+        
+    
+    
+            circle_marker_3bf1cfba4f1d6c139d5fe40c45cbc8b9.bindTooltip(
+                `<div>
+                     Ghana
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4169222dbc6e23bb1bbfc4f1eaa6418a = L.circleMarker(
+                [39.07, 21.82],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_ec59771b91f8e72858ae3d93797f251b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e2a1efe5791583e142fcddc61bb12670 = $(`<div id="html_e2a1efe5791583e142fcddc61bb12670" style="width: 100.0%; height: 100.0%;"><b>Greece</b><br>Avg AQI: <b>68</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 104</div>`)[0];
+                popup_ec59771b91f8e72858ae3d93797f251b.setContent(html_e2a1efe5791583e142fcddc61bb12670);
+            
+        
+
+        circle_marker_4169222dbc6e23bb1bbfc4f1eaa6418a.bindPopup(popup_ec59771b91f8e72858ae3d93797f251b)
+        ;
+
+        
+    
+    
+            circle_marker_4169222dbc6e23bb1bbfc4f1eaa6418a.bindTooltip(
+                `<div>
+                     Greece
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1e7ed6deb5fe6455f99b16f5b3b9710d = L.circleMarker(
+                [15.78, -90.23],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.3966942148760335, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_6b591748f8fc9c0cba2ba263706deb83 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_441f14c48cbbaed506659a62e421466d = $(`<div id="html_441f14c48cbbaed506659a62e421466d" style="width: 100.0%; height: 100.0%;"><b>Guatemala</b><br>Avg AQI: <b>81</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 121</div>`)[0];
+                popup_6b591748f8fc9c0cba2ba263706deb83.setContent(html_441f14c48cbbaed506659a62e421466d);
+            
+        
+
+        circle_marker_1e7ed6deb5fe6455f99b16f5b3b9710d.bindPopup(popup_6b591748f8fc9c0cba2ba263706deb83)
+        ;
+
+        
+    
+    
+            circle_marker_1e7ed6deb5fe6455f99b16f5b3b9710d.bindTooltip(
+                `<div>
+                     Guatemala
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_280f6f23e962cc6ffd005262ecc7025a = L.circleMarker(
+                [18.97, -72.28],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.781481481481482, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_0433acc9aaa9e30ed8c1f5551d8091f2 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_5ed1dd0df2827aee8e47f86b8159d449 = $(`<div id="html_5ed1dd0df2827aee8e47f86b8159d449" style="width: 100.0%; height: 100.0%;"><b>Haiti</b><br>Avg AQI: <b>102</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 18</div>`)[0];
+                popup_0433acc9aaa9e30ed8c1f5551d8091f2.setContent(html_5ed1dd0df2827aee8e47f86b8159d449);
+            
+        
+
+        circle_marker_280f6f23e962cc6ffd005262ecc7025a.bindPopup(popup_0433acc9aaa9e30ed8c1f5551d8091f2)
+        ;
+
+        
+    
+    
+            circle_marker_280f6f23e962cc6ffd005262ecc7025a.bindTooltip(
+                `<div>
+                     Haiti
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b94aa647388449cbe7a3b6be199206bf = L.circleMarker(
+                [15.19, -86.24],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_ca68f03f61f95320ce879e2fb3769229 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7af295a36fbce37cb2f79d9cd3ca80ae = $(`<div id="html_7af295a36fbce37cb2f79d9cd3ca80ae" style="width: 100.0%; height: 100.0%;"><b>Honduras</b><br>Avg AQI: <b>63</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 28</div>`)[0];
+                popup_ca68f03f61f95320ce879e2fb3769229.setContent(html_7af295a36fbce37cb2f79d9cd3ca80ae);
+            
+        
+
+        circle_marker_b94aa647388449cbe7a3b6be199206bf.bindPopup(popup_ca68f03f61f95320ce879e2fb3769229)
+        ;
+
+        
+    
+    
+            circle_marker_b94aa647388449cbe7a3b6be199206bf.bindTooltip(
+                `<div>
+                     Honduras
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3208265e61d9a01e3557e138a72a56a1 = L.circleMarker(
+                [47.16, 19.5],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_ee8e2350232693423cac8a0f5fc8f707 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1cdc284d3c6b0dc63f23c367c7000ce6 = $(`<div id="html_1cdc284d3c6b0dc63f23c367c7000ce6" style="width: 100.0%; height: 100.0%;"><b>Hungary</b><br>Avg AQI: <b>64</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 142</div>`)[0];
+                popup_ee8e2350232693423cac8a0f5fc8f707.setContent(html_1cdc284d3c6b0dc63f23c367c7000ce6);
+            
+        
+
+        circle_marker_3208265e61d9a01e3557e138a72a56a1.bindPopup(popup_ee8e2350232693423cac8a0f5fc8f707)
+        ;
+
+        
+    
+    
+            circle_marker_3208265e61d9a01e3557e138a72a56a1.bindTooltip(
+                `<div>
+                     Hungary
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b8cb7744384c54dc51f4e39e89e60bb5 = L.circleMarker(
+                [20.59, 78.96],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.19761521972133, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_21194c03c6695bb975999b963947a5d5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_adade6564fa27d1bd92c547864ede375 = $(`<div id="html_adade6564fa27d1bd92c547864ede375" style="width: 100.0%; height: 100.0%;"><b>India</b><br>Avg AQI: <b>153</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 2488</div>`)[0];
+                popup_21194c03c6695bb975999b963947a5d5.setContent(html_adade6564fa27d1bd92c547864ede375);
+            
+        
+
+        circle_marker_b8cb7744384c54dc51f4e39e89e60bb5.bindPopup(popup_21194c03c6695bb975999b963947a5d5)
+        ;
+
+        
+    
+    
+            circle_marker_b8cb7744384c54dc51f4e39e89e60bb5.bindTooltip(
+                `<div>
+                     India
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c0f3be588666b187aabf54f77fb98cfa = L.circleMarker(
+                [-0.79, 113.92],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.202462620932278, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_4c2ef231be5d5569d3840535889badbd = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_67d1987372ba99acc5f0b45d4b540e88 = $(`<div id="html_67d1987372ba99acc5f0b45d4b540e88" style="width: 100.0%; height: 100.0%;"><b>Indonesia</b><br>Avg AQI: <b>93</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 379</div>`)[0];
+                popup_4c2ef231be5d5569d3840535889badbd.setContent(html_67d1987372ba99acc5f0b45d4b540e88);
+            
+        
+
+        circle_marker_c0f3be588666b187aabf54f77fb98cfa.bindPopup(popup_4c2ef231be5d5569d3840535889badbd)
+        ;
+
+        
+    
+    
+            circle_marker_c0f3be588666b187aabf54f77fb98cfa.bindTooltip(
+                `<div>
+                     Indonesia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f24f77e583332ee8cff6f52d051ed7c6 = L.circleMarker(
+                [33.22, 43.67],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.604761904761904, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_03c320fcfe2e89a893bfbde68a004ec6 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_574985d1e245e31b92f37af01808d246 = $(`<div id="html_574985d1e245e31b92f37af01808d246" style="width: 100.0%; height: 100.0%;"><b>Iraq</b><br>Avg AQI: <b>114</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 14</div>`)[0];
+                popup_03c320fcfe2e89a893bfbde68a004ec6.setContent(html_574985d1e245e31b92f37af01808d246);
+            
+        
+
+        circle_marker_f24f77e583332ee8cff6f52d051ed7c6.bindPopup(popup_03c320fcfe2e89a893bfbde68a004ec6)
+        ;
+
+        
+    
+    
+            circle_marker_f24f77e583332ee8cff6f52d051ed7c6.bindTooltip(
+                `<div>
+                     Iraq
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1df78eb5ab683533fa9bc9003c97f6ee = L.circleMarker(
+                [31.04, 34.85],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.855072463768115, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_180f9a28d2ffbb7763a406a244dfab24 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7502b4133fabd29e3704de4058ab1c93 = $(`<div id="html_7502b4133fabd29e3704de4058ab1c93" style="width: 100.0%; height: 100.0%;"><b>Israel</b><br>Avg AQI: <b>88</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 46</div>`)[0];
+                popup_180f9a28d2ffbb7763a406a244dfab24.setContent(html_7502b4133fabd29e3704de4058ab1c93);
+            
+        
+
+        circle_marker_1df78eb5ab683533fa9bc9003c97f6ee.bindPopup(popup_180f9a28d2ffbb7763a406a244dfab24)
+        ;
+
+        
+    
+    
+            circle_marker_1df78eb5ab683533fa9bc9003c97f6ee.bindTooltip(
+                `<div>
+                     Israel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1938f8252855dc9aa9f3288968fdcf9f = L.circleMarker(
+                [41.87, 12.56],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_b747156db7dd983aa9d35fc7c216fa78 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_70f61c152337549d91cd4313f00029a7 = $(`<div id="html_70f61c152337549d91cd4313f00029a7" style="width: 100.0%; height: 100.0%;"><b>Italy</b><br>Avg AQI: <b>62</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 979</div>`)[0];
+                popup_b747156db7dd983aa9d35fc7c216fa78.setContent(html_70f61c152337549d91cd4313f00029a7);
+            
+        
+
+        circle_marker_1938f8252855dc9aa9f3288968fdcf9f.bindPopup(popup_b747156db7dd983aa9d35fc7c216fa78)
+        ;
+
+        
+    
+    
+            circle_marker_1938f8252855dc9aa9f3288968fdcf9f.bindTooltip(
+                `<div>
+                     Italy
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c20fd8c1fa8f110fb64b8688d9ade0db = L.circleMarker(
+                [18.1, -77.29],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.044444444444445, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_7fa5b6cb253354a950f77c82bf6e4af3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_c1406e45b350c19ffe1c7ab2c404d104 = $(`<div id="html_c1406e45b350c19ffe1c7ab2c404d104" style="width: 100.0%; height: 100.0%;"><b>Jamaica</b><br>Avg AQI: <b>91</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 6</div>`)[0];
+                popup_7fa5b6cb253354a950f77c82bf6e4af3.setContent(html_c1406e45b350c19ffe1c7ab2c404d104);
+            
+        
+
+        circle_marker_c20fd8c1fa8f110fb64b8688d9ade0db.bindPopup(popup_7fa5b6cb253354a950f77c82bf6e4af3)
+        ;
+
+        
+    
+    
+            circle_marker_c20fd8c1fa8f110fb64b8688d9ade0db.bindTooltip(
+                `<div>
+                     Jamaica
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_420a160392649b9aa545bd212dfe2203 = L.circleMarker(
+                [36.2, 138.25],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_6dcd6e99c040f3fa41df9736702a5006 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_adf921d32ce414fbccf6ba1fa46cc412 = $(`<div id="html_adf921d32ce414fbccf6ba1fa46cc412" style="width: 100.0%; height: 100.0%;"><b>Japan</b><br>Avg AQI: <b>52</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 702</div>`)[0];
+                popup_6dcd6e99c040f3fa41df9736702a5006.setContent(html_adf921d32ce414fbccf6ba1fa46cc412);
+            
+        
+
+        circle_marker_420a160392649b9aa545bd212dfe2203.bindPopup(popup_6dcd6e99c040f3fa41df9736702a5006)
+        ;
+
+        
+    
+    
+            circle_marker_420a160392649b9aa545bd212dfe2203.bindTooltip(
+                `<div>
+                     Japan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a3decc906190426bd9271baa1344c24 = L.circleMarker(
+                [30.58, 36.23],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.455555555555555, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_a1968bf89a0009e3017562ebf04f90ed = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f394bfb8cf6f50511dbee15392a46e6f = $(`<div id="html_f394bfb8cf6f50511dbee15392a46e6f" style="width: 100.0%; height: 100.0%;"><b>Jordan</b><br>Avg AQI: <b>97</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 12</div>`)[0];
+                popup_a1968bf89a0009e3017562ebf04f90ed.setContent(html_f394bfb8cf6f50511dbee15392a46e6f);
+            
+        
+
+        circle_marker_3a3decc906190426bd9271baa1344c24.bindPopup(popup_a1968bf89a0009e3017562ebf04f90ed)
+        ;
+
+        
+    
+    
+            circle_marker_3a3decc906190426bd9271baa1344c24.bindTooltip(
+                `<div>
+                     Jordan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_878c165ae12ded87de84128378e21706 = L.circleMarker(
+                [48.01, 66.92],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_c018385dd61479f982476c98e595fdcd = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_58840ac648b1a7d57f5663460ab66296 = $(`<div id="html_58840ac648b1a7d57f5663460ab66296" style="width: 100.0%; height: 100.0%;"><b>Kazakhstan</b><br>Avg AQI: <b>61</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 71</div>`)[0];
+                popup_c018385dd61479f982476c98e595fdcd.setContent(html_58840ac648b1a7d57f5663460ab66296);
+            
+        
+
+        circle_marker_878c165ae12ded87de84128378e21706.bindPopup(popup_c018385dd61479f982476c98e595fdcd)
+        ;
+
+        
+    
+    
+            circle_marker_878c165ae12ded87de84128378e21706.bindTooltip(
+                `<div>
+                     Kazakhstan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_962c84b4d64dcd3a98a0f46f6630dda7 = L.circleMarker(
+                [-0.02, 37.9],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_6bdb181031d5cb2b8e2f7621f943f000 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f0f1c1a37810411b12dba6af15491450 = $(`<div id="html_f0f1c1a37810411b12dba6af15491450" style="width: 100.0%; height: 100.0%;"><b>Kenya</b><br>Avg AQI: <b>74</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 60</div>`)[0];
+                popup_6bdb181031d5cb2b8e2f7621f943f000.setContent(html_f0f1c1a37810411b12dba6af15491450);
+            
+        
+
+        circle_marker_962c84b4d64dcd3a98a0f46f6630dda7.bindPopup(popup_6bdb181031d5cb2b8e2f7621f943f000)
+        ;
+
+        
+    
+    
+            circle_marker_962c84b4d64dcd3a98a0f46f6630dda7.bindTooltip(
+                `<div>
+                     Kenya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3d37a08ce9ced1404debcdb9ff94e0b6 = L.circleMarker(
+                [29.31, 47.48],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.8, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_a5b3337bcaa51bedd55493c903081bb3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2f4d23f0344025a913d2a9857ccecffd = $(`<div id="html_2f4d23f0344025a913d2a9857ccecffd" style="width: 100.0%; height: 100.0%;"><b>Kuwait</b><br>Avg AQI: <b>162</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 3</div>`)[0];
+                popup_a5b3337bcaa51bedd55493c903081bb3.setContent(html_2f4d23f0344025a913d2a9857ccecffd);
+            
+        
+
+        circle_marker_3d37a08ce9ced1404debcdb9ff94e0b6.bindPopup(popup_a5b3337bcaa51bedd55493c903081bb3)
+        ;
+
+        
+    
+    
+            circle_marker_3d37a08ce9ced1404debcdb9ff94e0b6.bindTooltip(
+                `<div>
+                     Kuwait
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_76e69d5d80e59f50b0eb0c34eeed04c4 = L.circleMarker(
+                [41.2, 74.76],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.435897435897435, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_c2626a10ccb18eaea5be443c16d81c0e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_aee74e6ab40127e7e94d2d4e783da9da = $(`<div id="html_aee74e6ab40127e7e94d2d4e783da9da" style="width: 100.0%; height: 100.0%;"><b>Kyrgyzstan</b><br>Avg AQI: <b>82</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 13</div>`)[0];
+                popup_c2626a10ccb18eaea5be443c16d81c0e.setContent(html_aee74e6ab40127e7e94d2d4e783da9da);
+            
+        
+
+        circle_marker_76e69d5d80e59f50b0eb0c34eeed04c4.bindPopup(popup_c2626a10ccb18eaea5be443c16d81c0e)
+        ;
+
+        
+    
+    
+            circle_marker_76e69d5d80e59f50b0eb0c34eeed04c4.bindTooltip(
+                `<div>
+                     Kyrgyzstan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e33d45a2ab1f5ffeeeed2ba683f9d194 = L.circleMarker(
+                [33.85, 35.86],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_cf723a6554b04279a5870d9e8837f7af = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0dd78e4d5bfcd9dbf62725581d4f3737 = $(`<div id="html_0dd78e4d5bfcd9dbf62725581d4f3737" style="width: 100.0%; height: 100.0%;"><b>Lebanon</b><br>Avg AQI: <b>72</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 6</div>`)[0];
+                popup_cf723a6554b04279a5870d9e8837f7af.setContent(html_0dd78e4d5bfcd9dbf62725581d4f3737);
+            
+        
+
+        circle_marker_e33d45a2ab1f5ffeeeed2ba683f9d194.bindPopup(popup_cf723a6554b04279a5870d9e8837f7af)
+        ;
+
+        
+    
+    
+            circle_marker_e33d45a2ab1f5ffeeeed2ba683f9d194.bindTooltip(
+                `<div>
+                     Lebanon
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d7b1038b80d2824afa66c4d6b3aa1924 = L.circleMarker(
+                [26.33, 17.23],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.026666666666667, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_1aa70311e9abaa2c00c19b7b6f21ea95 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_08a8a861b6a184c0fb9d128ff66d15f4 = $(`<div id="html_08a8a861b6a184c0fb9d128ff66d15f4" style="width: 100.0%; height: 100.0%;"><b>Libya</b><br>Avg AQI: <b>105</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 25</div>`)[0];
+                popup_1aa70311e9abaa2c00c19b7b6f21ea95.setContent(html_08a8a861b6a184c0fb9d128ff66d15f4);
+            
+        
+
+        circle_marker_d7b1038b80d2824afa66c4d6b3aa1924.bindPopup(popup_1aa70311e9abaa2c00c19b7b6f21ea95)
+        ;
+
+        
+    
+    
+            circle_marker_d7b1038b80d2824afa66c4d6b3aa1924.bindTooltip(
+                `<div>
+                     Libya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b8363ef067122314e3f3513fe2603599 = L.circleMarker(
+                [-18.76, 46.86],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_f79647a1fd219386e3ffef3044aab435 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_bbfac8d79a6305a1eebc8244d1c00414 = $(`<div id="html_bbfac8d79a6305a1eebc8244d1c00414" style="width: 100.0%; height: 100.0%;"><b>Madagascar</b><br>Avg AQI: <b>31</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 65</div>`)[0];
+                popup_f79647a1fd219386e3ffef3044aab435.setContent(html_bbfac8d79a6305a1eebc8244d1c00414);
+            
+        
+
+        circle_marker_b8363ef067122314e3f3513fe2603599.bindPopup(popup_f79647a1fd219386e3ffef3044aab435)
+        ;
+
+        
+    
+    
+            circle_marker_b8363ef067122314e3f3513fe2603599.bindTooltip(
+                `<div>
+                     Madagascar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fa25714a02affa2e43c831991374eae6 = L.circleMarker(
+                [4.21, 101.97],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.441066666666667, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_71538257a76ce018498f543ad61f9a06 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_920054b2ff8bfafbfce5629c4f403ca0 = $(`<div id="html_920054b2ff8bfafbfce5629c4f403ca0" style="width: 100.0%; height: 100.0%;"><b>Malaysia</b><br>Avg AQI: <b>82</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 125</div>`)[0];
+                popup_71538257a76ce018498f543ad61f9a06.setContent(html_920054b2ff8bfafbfce5629c4f403ca0);
+            
+        
+
+        circle_marker_fa25714a02affa2e43c831991374eae6.bindPopup(popup_71538257a76ce018498f543ad61f9a06)
+        ;
+
+        
+    
+    
+            circle_marker_fa25714a02affa2e43c831991374eae6.bindTooltip(
+                `<div>
+                     Malaysia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b77e3d246a18de75de609538e136ccf = L.circleMarker(
+                [3.2, 73.22],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_7463eb264568c314c249bac14542c3e3 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_6d5288d5e087db860775895fc44fe305 = $(`<div id="html_6d5288d5e087db860775895fc44fe305" style="width: 100.0%; height: 100.0%;"><b>Maldives</b><br>Avg AQI: <b>19</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 1</div>`)[0];
+                popup_7463eb264568c314c249bac14542c3e3.setContent(html_6d5288d5e087db860775895fc44fe305);
+            
+        
+
+        circle_marker_6b77e3d246a18de75de609538e136ccf.bindPopup(popup_7463eb264568c314c249bac14542c3e3)
+        ;
+
+        
+    
+    
+            circle_marker_6b77e3d246a18de75de609538e136ccf.bindTooltip(
+                `<div>
+                     Maldives
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f5667ea2145182905da7d416e7a4f7c0 = L.circleMarker(
+                [23.63, -102.55],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.969160997732427, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_28059b11ab2fb27e9a790d772b4d53f5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f274b4528a7aec2c4f236a209c935c8d = $(`<div id="html_f274b4528a7aec2c4f236a209c935c8d" style="width: 100.0%; height: 100.0%;"><b>Mexico</b><br>Avg AQI: <b>90</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 588</div>`)[0];
+                popup_28059b11ab2fb27e9a790d772b4d53f5.setContent(html_f274b4528a7aec2c4f236a209c935c8d);
+            
+        
+
+        circle_marker_f5667ea2145182905da7d416e7a4f7c0.bindPopup(popup_28059b11ab2fb27e9a790d772b4d53f5)
+        ;
+
+        
+    
+    
+            circle_marker_f5667ea2145182905da7d416e7a4f7c0.bindTooltip(
+                `<div>
+                     Mexico
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c6a4e427b4e09fc539af506f5a7306e8 = L.circleMarker(
+                [46.86, 103.84],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_dd8d30c9dc3331f13e93b090112e36c7 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_022b23bc2bcf9d2960afe520af7f62e7 = $(`<div id="html_022b23bc2bcf9d2960afe520af7f62e7" style="width: 100.0%; height: 100.0%;"><b>Mongolia</b><br>Avg AQI: <b>53</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 10</div>`)[0];
+                popup_dd8d30c9dc3331f13e93b090112e36c7.setContent(html_022b23bc2bcf9d2960afe520af7f62e7);
+            
+        
+
+        circle_marker_c6a4e427b4e09fc539af506f5a7306e8.bindPopup(popup_dd8d30c9dc3331f13e93b090112e36c7)
+        ;
+
+        
+    
+    
+            circle_marker_c6a4e427b4e09fc539af506f5a7306e8.bindTooltip(
+                `<div>
+                     Mongolia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb98bc5328731cb12b9da5726e72746e = L.circleMarker(
+                [31.79, -7.08],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_ab51996d3ff77bd3365b57da44534978 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e03e2b421dd134015f6f5267d4a94329 = $(`<div id="html_e03e2b421dd134015f6f5267d4a94329" style="width: 100.0%; height: 100.0%;"><b>Morocco</b><br>Avg AQI: <b>45</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 19</div>`)[0];
+                popup_ab51996d3ff77bd3365b57da44534978.setContent(html_e03e2b421dd134015f6f5267d4a94329);
+            
+        
+
+        circle_marker_bb98bc5328731cb12b9da5726e72746e.bindPopup(popup_ab51996d3ff77bd3365b57da44534978)
+        ;
+
+        
+    
+    
+            circle_marker_bb98bc5328731cb12b9da5726e72746e.bindTooltip(
+                `<div>
+                     Morocco
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8e47f960364ea2064ef50363f0dc5c72 = L.circleMarker(
+                [-18.66, 35.52],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_99988911c4fdd225f1d6ba34371f8e8c = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_db7de8054921f7e7406a2c3c4b5ad0ff = $(`<div id="html_db7de8054921f7e7406a2c3c4b5ad0ff" style="width: 100.0%; height: 100.0%;"><b>Mozambique</b><br>Avg AQI: <b>37</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 23</div>`)[0];
+                popup_99988911c4fdd225f1d6ba34371f8e8c.setContent(html_db7de8054921f7e7406a2c3c4b5ad0ff);
+            
+        
+
+        circle_marker_8e47f960364ea2064ef50363f0dc5c72.bindPopup(popup_99988911c4fdd225f1d6ba34371f8e8c)
+        ;
+
+        
+    
+    
+            circle_marker_8e47f960364ea2064ef50363f0dc5c72.bindTooltip(
+                `<div>
+                     Mozambique
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7c9ea07d754320b2dd0c96287a688780 = L.circleMarker(
+                [21.91, 95.95],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_77c8c39c2d35bfac31b22863256107f2 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f57e66ed1692916c6278043f7fea70b7 = $(`<div id="html_f57e66ed1692916c6278043f7fea70b7" style="width: 100.0%; height: 100.0%;"><b>Myanmar</b><br>Avg AQI: <b>40</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 59</div>`)[0];
+                popup_77c8c39c2d35bfac31b22863256107f2.setContent(html_f57e66ed1692916c6278043f7fea70b7);
+            
+        
+
+        circle_marker_7c9ea07d754320b2dd0c96287a688780.bindPopup(popup_77c8c39c2d35bfac31b22863256107f2)
+        ;
+
+        
+    
+    
+            circle_marker_7c9ea07d754320b2dd0c96287a688780.bindTooltip(
+                `<div>
+                     Myanmar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c8a0e554a6a9b11216816f7d05296b90 = L.circleMarker(
+                [28.39, 84.12],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.757575757575757, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_d7ce867d6a0b6a63bb4518aa725daeea = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1dddbe912a4bcb4cef04e916f6b18c57 = $(`<div id="html_1dddbe912a4bcb4cef04e916f6b18c57" style="width: 100.0%; height: 100.0%;"><b>Nepal</b><br>Avg AQI: <b>116</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 33</div>`)[0];
+                popup_d7ce867d6a0b6a63bb4518aa725daeea.setContent(html_1dddbe912a4bcb4cef04e916f6b18c57);
+            
+        
+
+        circle_marker_c8a0e554a6a9b11216816f7d05296b90.bindPopup(popup_d7ce867d6a0b6a63bb4518aa725daeea)
+        ;
+
+        
+    
+    
+            circle_marker_c8a0e554a6a9b11216816f7d05296b90.bindTooltip(
+                `<div>
+                     Nepal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a53b084c3aca4bf19cde328f6f0f653 = L.circleMarker(
+                [52.13, 5.29],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_217a99c879ecb672d2f36dbc409cb459 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_879eda6a53813cc4df3aa66b01cbe88e = $(`<div id="html_879eda6a53813cc4df3aa66b01cbe88e" style="width: 100.0%; height: 100.0%;"><b>Netherlands</b><br>Avg AQI: <b>38</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 298</div>`)[0];
+                popup_217a99c879ecb672d2f36dbc409cb459.setContent(html_879eda6a53813cc4df3aa66b01cbe88e);
+            
+        
+
+        circle_marker_4a53b084c3aca4bf19cde328f6f0f653.bindPopup(popup_217a99c879ecb672d2f36dbc409cb459)
+        ;
+
+        
+    
+    
+            circle_marker_4a53b084c3aca4bf19cde328f6f0f653.bindTooltip(
+                `<div>
+                     Netherlands
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_acde4a4cdf78c539f4bdfecacf112ba6 = L.circleMarker(
+                [-40.9, 174.88],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_9cd15976adf96d5f6f5852ca97738333 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_62c2e9ba26abb0ad74a5f071a33cbe6b = $(`<div id="html_62c2e9ba26abb0ad74a5f071a33cbe6b" style="width: 100.0%; height: 100.0%;"><b>New Zealand</b><br>Avg AQI: <b>31</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 22</div>`)[0];
+                popup_9cd15976adf96d5f6f5852ca97738333.setContent(html_62c2e9ba26abb0ad74a5f071a33cbe6b);
+            
+        
+
+        circle_marker_acde4a4cdf78c539f4bdfecacf112ba6.bindPopup(popup_9cd15976adf96d5f6f5852ca97738333)
+        ;
+
+        
+    
+    
+            circle_marker_acde4a4cdf78c539f4bdfecacf112ba6.bindTooltip(
+                `<div>
+                     New Zealand
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ca77b95f58d717e4537d7d301e552aa4 = L.circleMarker(
+                [12.86, -85.2],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_d5d6f623427cf35dfae1398ea63a6683 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_cd2f0347c1c634038ff4ac3d9cd2a4e7 = $(`<div id="html_cd2f0347c1c634038ff4ac3d9cd2a4e7" style="width: 100.0%; height: 100.0%;"><b>Nicaragua</b><br>Avg AQI: <b>48</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 37</div>`)[0];
+                popup_d5d6f623427cf35dfae1398ea63a6683.setContent(html_cd2f0347c1c634038ff4ac3d9cd2a4e7);
+            
+        
+
+        circle_marker_ca77b95f58d717e4537d7d301e552aa4.bindPopup(popup_d5d6f623427cf35dfae1398ea63a6683)
+        ;
+
+        
+    
+    
+            circle_marker_ca77b95f58d717e4537d7d301e552aa4.bindTooltip(
+                `<div>
+                     Nicaragua
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0f616600ea164cc96321c38bd4f8e9a9 = L.circleMarker(
+                [9.08, 8.67],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.640740740740741, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_9735d51c1a357079e736357b4d4b63c4 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1e60287c0850ad36590ba47bfc53f5b1 = $(`<div id="html_1e60287c0850ad36590ba47bfc53f5b1" style="width: 100.0%; height: 100.0%;"><b>Nigeria</b><br>Avg AQI: <b>100</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 144</div>`)[0];
+                popup_9735d51c1a357079e736357b4d4b63c4.setContent(html_1e60287c0850ad36590ba47bfc53f5b1);
+            
+        
+
+        circle_marker_0f616600ea164cc96321c38bd4f8e9a9.bindPopup(popup_9735d51c1a357079e736357b4d4b63c4)
+        ;
+
+        
+    
+    
+            circle_marker_0f616600ea164cc96321c38bd4f8e9a9.bindTooltip(
+                `<div>
+                     Nigeria
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1ea1d3299a809724640fc5e7b2165667 = L.circleMarker(
+                [60.47, 8.46],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_516f24c6c6c39c7f7e074c6fedf9d3da = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_3bf945b80500a8ac84aa78388a529618 = $(`<div id="html_3bf945b80500a8ac84aa78388a529618" style="width: 100.0%; height: 100.0%;"><b>Norway</b><br>Avg AQI: <b>35</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 21</div>`)[0];
+                popup_516f24c6c6c39c7f7e074c6fedf9d3da.setContent(html_3bf945b80500a8ac84aa78388a529618);
+            
+        
+
+        circle_marker_1ea1d3299a809724640fc5e7b2165667.bindPopup(popup_516f24c6c6c39c7f7e074c6fedf9d3da)
+        ;
+
+        
+    
+    
+            circle_marker_1ea1d3299a809724640fc5e7b2165667.bindTooltip(
+                `<div>
+                     Norway
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0b5a96cede29d759cb057da33c1a76bd = L.circleMarker(
+                [21.51, 55.92],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.166666666666666, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_b6224a3ec7c787fd3aff44ec0414339f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0d73c76708a32e8983f4aec5713becd2 = $(`<div id="html_0d73c76708a32e8983f4aec5713becd2" style="width: 100.0%; height: 100.0%;"><b>Oman</b><br>Avg AQI: <b>138</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 6</div>`)[0];
+                popup_b6224a3ec7c787fd3aff44ec0414339f.setContent(html_0d73c76708a32e8983f4aec5713becd2);
+            
+        
+
+        circle_marker_0b5a96cede29d759cb057da33c1a76bd.bindPopup(popup_b6224a3ec7c787fd3aff44ec0414339f)
+        ;
+
+        
+    
+    
+            circle_marker_0b5a96cede29d759cb057da33c1a76bd.bindTooltip(
+                `<div>
+                     Oman
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba2cb28a1ddb26755779a3a7f666d13b = L.circleMarker(
+                [30.37, 69.34],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.919218241042346, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_c400c668004e33434672ca89c06a016f = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_59e80efa2b0907b21da342b1ea388b27 = $(`<div id="html_59e80efa2b0907b21da342b1ea388b27" style="width: 100.0%; height: 100.0%;"><b>Pakistan</b><br>Avg AQI: <b>179</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 307</div>`)[0];
+                popup_c400c668004e33434672ca89c06a016f.setContent(html_59e80efa2b0907b21da342b1ea388b27);
+            
+        
+
+        circle_marker_ba2cb28a1ddb26755779a3a7f666d13b.bindPopup(popup_c400c668004e33434672ca89c06a016f)
+        ;
+
+        
+    
+    
+            circle_marker_ba2cb28a1ddb26755779a3a7f666d13b.bindTooltip(
+                `<div>
+                     Pakistan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_72b1c393b4c70da0398e668ff364d3de = L.circleMarker(
+                [8.53, -80.78],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_8fe27a1648348cec1697e91698132665 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_719affd51d873f65afb58710b41cb318 = $(`<div id="html_719affd51d873f65afb58710b41cb318" style="width: 100.0%; height: 100.0%;"><b>Panama</b><br>Avg AQI: <b>68</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 27</div>`)[0];
+                popup_8fe27a1648348cec1697e91698132665.setContent(html_719affd51d873f65afb58710b41cb318);
+            
+        
+
+        circle_marker_72b1c393b4c70da0398e668ff364d3de.bindPopup(popup_8fe27a1648348cec1697e91698132665)
+        ;
+
+        
+    
+    
+            circle_marker_72b1c393b4c70da0398e668ff364d3de.bindTooltip(
+                `<div>
+                     Panama
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5c9ee46833ad5ded533f4b5cf91a4c46 = L.circleMarker(
+                [-23.44, -58.44],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_65a87f627a9e5ca4e6ec04fd8fb2b1ec = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_adcdba06a7215641ecce02b8bac36973 = $(`<div id="html_adcdba06a7215641ecce02b8bac36973" style="width: 100.0%; height: 100.0%;"><b>Paraguay</b><br>Avg AQI: <b>43</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 26</div>`)[0];
+                popup_65a87f627a9e5ca4e6ec04fd8fb2b1ec.setContent(html_adcdba06a7215641ecce02b8bac36973);
+            
+        
+
+        circle_marker_5c9ee46833ad5ded533f4b5cf91a4c46.bindPopup(popup_65a87f627a9e5ca4e6ec04fd8fb2b1ec)
+        ;
+
+        
+    
+    
+            circle_marker_5c9ee46833ad5ded533f4b5cf91a4c46.bindTooltip(
+                `<div>
+                     Paraguay
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ae23f6ee72b4075687123810498ef0b9 = L.circleMarker(
+                [-9.18, -75.01],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_41f61e0d65eae0bb7fea9c4771f1e917 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_bcb2bb8d93e5f46162cfd7d536bb3da0 = $(`<div id="html_bcb2bb8d93e5f46162cfd7d536bb3da0" style="width: 100.0%; height: 100.0%;"><b>Peru</b><br>Avg AQI: <b>36</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 128</div>`)[0];
+                popup_41f61e0d65eae0bb7fea9c4771f1e917.setContent(html_bcb2bb8d93e5f46162cfd7d536bb3da0);
+            
+        
+
+        circle_marker_ae23f6ee72b4075687123810498ef0b9.bindPopup(popup_41f61e0d65eae0bb7fea9c4771f1e917)
+        ;
+
+        
+    
+    
+            circle_marker_ae23f6ee72b4075687123810498ef0b9.bindTooltip(
+                `<div>
+                     Peru
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f9cb3229b6449e28a16fcc5146ce17e = L.circleMarker(
+                [12.87, 121.77],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_7dc6850cc83df823024c3d702ff9ab2b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_3af6d245137ae77818d37f64dbed27f3 = $(`<div id="html_3af6d245137ae77818d37f64dbed27f3" style="width: 100.0%; height: 100.0%;"><b>Philippines</b><br>Avg AQI: <b>61</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 337</div>`)[0];
+                popup_7dc6850cc83df823024c3d702ff9ab2b.setContent(html_3af6d245137ae77818d37f64dbed27f3);
+            
+        
+
+        circle_marker_6f9cb3229b6449e28a16fcc5146ce17e.bindPopup(popup_7dc6850cc83df823024c3d702ff9ab2b)
+        ;
+
+        
+    
+    
+            circle_marker_6f9cb3229b6449e28a16fcc5146ce17e.bindTooltip(
+                `<div>
+                     Philippines
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4057e9fc61bd88459740eec582fc5086 = L.circleMarker(
+                [51.91, 19.14],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_b9887c52539273bdf8abc3680b41479c = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_e3691374942598246cb762a42af90b4e = $(`<div id="html_e3691374942598246cb762a42af90b4e" style="width: 100.0%; height: 100.0%;"><b>Poland</b><br>Avg AQI: <b>52</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 389</div>`)[0];
+                popup_b9887c52539273bdf8abc3680b41479c.setContent(html_e3691374942598246cb762a42af90b4e);
+            
+        
+
+        circle_marker_4057e9fc61bd88459740eec582fc5086.bindPopup(popup_b9887c52539273bdf8abc3680b41479c)
+        ;
+
+        
+    
+    
+            circle_marker_4057e9fc61bd88459740eec582fc5086.bindTooltip(
+                `<div>
+                     Poland
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e3552eb284a175a3afb194ab1cb65643 = L.circleMarker(
+                [39.39, -8.22],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_bc8c2f68a3d43b3a757b9c1c279a016d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_064a63bfdfd1897589fd7368ae1a3eb4 = $(`<div id="html_064a63bfdfd1897589fd7368ae1a3eb4" style="width: 100.0%; height: 100.0%;"><b>Portugal</b><br>Avg AQI: <b>35</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 153</div>`)[0];
+                popup_bc8c2f68a3d43b3a757b9c1c279a016d.setContent(html_064a63bfdfd1897589fd7368ae1a3eb4);
+            
+        
+
+        circle_marker_e3552eb284a175a3afb194ab1cb65643.bindPopup(popup_bc8c2f68a3d43b3a757b9c1c279a016d)
+        ;
+
+        
+    
+    
+            circle_marker_e3552eb284a175a3afb194ab1cb65643.bindTooltip(
+                `<div>
+                     Portugal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a5fa6e6854f70527457bbb52c190f5bd = L.circleMarker(
+                [25.35, 51.18],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_4cf733dd66d4c8d110ce900925db36ec = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_48b82da7b9f2367d3347546a4b163015 = $(`<div id="html_48b82da7b9f2367d3347546a4b163015" style="width: 100.0%; height: 100.0%;"><b>Qatar</b><br>Avg AQI: <b>158</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 2</div>`)[0];
+                popup_4cf733dd66d4c8d110ce900925db36ec.setContent(html_48b82da7b9f2367d3347546a4b163015);
+            
+        
+
+        circle_marker_a5fa6e6854f70527457bbb52c190f5bd.bindPopup(popup_4cf733dd66d4c8d110ce900925db36ec)
+        ;
+
+        
+    
+    
+            circle_marker_a5fa6e6854f70527457bbb52c190f5bd.bindTooltip(
+                `<div>
+                     Qatar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bbc7b2b3ff55b6018069f764ae815a81 = L.circleMarker(
+                [45.94, 24.96],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_2cd89e84428b260df8cf8c8ee5ec4c0a = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_2e92e3bafda1ea885008eb51630a74d4 = $(`<div id="html_2e92e3bafda1ea885008eb51630a74d4" style="width: 100.0%; height: 100.0%;"><b>Romania</b><br>Avg AQI: <b>54</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 211</div>`)[0];
+                popup_2cd89e84428b260df8cf8c8ee5ec4c0a.setContent(html_2e92e3bafda1ea885008eb51630a74d4);
+            
+        
+
+        circle_marker_bbc7b2b3ff55b6018069f764ae815a81.bindPopup(popup_2cd89e84428b260df8cf8c8ee5ec4c0a)
+        ;
+
+        
+    
+    
+            circle_marker_bbc7b2b3ff55b6018069f764ae815a81.bindTooltip(
+                `<div>
+                     Romania
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f38aa872014c67b4d242607ee1daf938 = L.circleMarker(
+                [23.88, 45.07],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.952380952380953, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_a6661a90d7bb3ede35b1987bfd9dd906 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4202afef9a1ea10da9d1f6425bda4311 = $(`<div id="html_4202afef9a1ea10da9d1f6425bda4311" style="width: 100.0%; height: 100.0%;"><b>Saudi Arabia</b><br>Avg AQI: <b>149</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 14</div>`)[0];
+                popup_a6661a90d7bb3ede35b1987bfd9dd906.setContent(html_4202afef9a1ea10da9d1f6425bda4311);
+            
+        
+
+        circle_marker_f38aa872014c67b4d242607ee1daf938.bindPopup(popup_a6661a90d7bb3ede35b1987bfd9dd906)
+        ;
+
+        
+    
+    
+            circle_marker_f38aa872014c67b4d242607ee1daf938.bindTooltip(
+                `<div>
+                     Saudi Arabia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f01fcac1171e5998e724ad4545b02480 = L.circleMarker(
+                [14.49, -14.45],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.161616161616163, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_ee8afc2e1eea2ae77b5ea349f24ee61d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_354dc6e9a0713b8ea5d8f818789bd13b = $(`<div id="html_354dc6e9a0713b8ea5d8f818789bd13b" style="width: 100.0%; height: 100.0%;"><b>Senegal</b><br>Avg AQI: <b>152</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 33</div>`)[0];
+                popup_ee8afc2e1eea2ae77b5ea349f24ee61d.setContent(html_354dc6e9a0713b8ea5d8f818789bd13b);
+            
+        
+
+        circle_marker_f01fcac1171e5998e724ad4545b02480.bindPopup(popup_ee8afc2e1eea2ae77b5ea349f24ee61d)
+        ;
+
+        
+    
+    
+            circle_marker_f01fcac1171e5998e724ad4545b02480.bindTooltip(
+                `<div>
+                     Senegal
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_428bde28b079cd3b097e31a061338672 = L.circleMarker(
+                [44.01, 21.0],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_f85fcd3dde1dd52a2e896f2e8390fe76 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_b4bbae0a62fca3d2a808a6a39e82796c = $(`<div id="html_b4bbae0a62fca3d2a808a6a39e82796c" style="width: 100.0%; height: 100.0%;"><b>Serbia</b><br>Avg AQI: <b>68</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 89</div>`)[0];
+                popup_f85fcd3dde1dd52a2e896f2e8390fe76.setContent(html_b4bbae0a62fca3d2a808a6a39e82796c);
+            
+        
+
+        circle_marker_428bde28b079cd3b097e31a061338672.bindPopup(popup_f85fcd3dde1dd52a2e896f2e8390fe76)
+        ;
+
+        
+    
+    
+            circle_marker_428bde28b079cd3b097e31a061338672.bindTooltip(
+                `<div>
+                     Serbia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_922168dee9d5c3c52296ca427f6e12c8 = L.circleMarker(
+                [1.35, 103.81],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.066666666666666, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_a9dcda6ede719b9c16d471f830de04ad = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0e126114b7ceb1ccff396eb18145f624 = $(`<div id="html_0e126114b7ceb1ccff396eb18145f624" style="width: 100.0%; height: 100.0%;"><b>Singapore</b><br>Avg AQI: <b>91</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 1</div>`)[0];
+                popup_a9dcda6ede719b9c16d471f830de04ad.setContent(html_0e126114b7ceb1ccff396eb18145f624);
+            
+        
+
+        circle_marker_922168dee9d5c3c52296ca427f6e12c8.bindPopup(popup_a9dcda6ede719b9c16d471f830de04ad)
+        ;
+
+        
+    
+    
+            circle_marker_922168dee9d5c3c52296ca427f6e12c8.bindTooltip(
+                `<div>
+                     Singapore
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_16fd4f3ff71b9f56e10d7551f3b48edb = L.circleMarker(
+                [48.66, 19.69],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_0cd6cedfc0621d5623c287bba7433ddd = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_1bcc59701b2f9b531b5321642ddf2399 = $(`<div id="html_1bcc59701b2f9b531b5321642ddf2399" style="width: 100.0%; height: 100.0%;"><b>Slovakia</b><br>Avg AQI: <b>68</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 62</div>`)[0];
+                popup_0cd6cedfc0621d5623c287bba7433ddd.setContent(html_1bcc59701b2f9b531b5321642ddf2399);
+            
+        
+
+        circle_marker_16fd4f3ff71b9f56e10d7551f3b48edb.bindPopup(popup_0cd6cedfc0621d5623c287bba7433ddd)
+        ;
+
+        
+    
+    
+            circle_marker_16fd4f3ff71b9f56e10d7551f3b48edb.bindTooltip(
+                `<div>
+                     Slovakia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bda3d7a1690a15c1a21a4bcc05698b5e = L.circleMarker(
+                [-30.55, 22.93],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.5360153256704985, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_b92c184f7927a9ddc4b3a2a83b0ed004 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_559472e731d29b11e711f81eb285d69f = $(`<div id="html_559472e731d29b11e711f81eb285d69f" style="width: 100.0%; height: 100.0%;"><b>South Africa</b><br>Avg AQI: <b>113</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 174</div>`)[0];
+                popup_b92c184f7927a9ddc4b3a2a83b0ed004.setContent(html_559472e731d29b11e711f81eb285d69f);
+            
+        
+
+        circle_marker_bda3d7a1690a15c1a21a4bcc05698b5e.bindPopup(popup_b92c184f7927a9ddc4b3a2a83b0ed004)
+        ;
+
+        
+    
+    
+            circle_marker_bda3d7a1690a15c1a21a4bcc05698b5e.bindTooltip(
+                `<div>
+                     South Africa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f21089fd25f63cea35c9712ce582a17f = L.circleMarker(
+                [40.46, -3.74],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_3d418018942196261ed6d11ea8a1e0f1 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_b78c4a1a58d802aece38ef18475b707c = $(`<div id="html_b78c4a1a58d802aece38ef18475b707c" style="width: 100.0%; height: 100.0%;"><b>Spain</b><br>Avg AQI: <b>38</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 425</div>`)[0];
+                popup_3d418018942196261ed6d11ea8a1e0f1.setContent(html_b78c4a1a58d802aece38ef18475b707c);
+            
+        
+
+        circle_marker_f21089fd25f63cea35c9712ce582a17f.bindPopup(popup_3d418018942196261ed6d11ea8a1e0f1)
+        ;
+
+        
+    
+    
+            circle_marker_f21089fd25f63cea35c9712ce582a17f.bindTooltip(
+                `<div>
+                     Spain
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bd89af661e62823f6c41062829b2dbba = L.circleMarker(
+                [7.87, 80.77],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_851f4b548cb1d8bd3b9aa3af4afe4a9e = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_67667f32f4f060648409ed5395a542f8 = $(`<div id="html_67667f32f4f060648409ed5395a542f8" style="width: 100.0%; height: 100.0%;"><b>Sri Lanka</b><br>Avg AQI: <b>64</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 46</div>`)[0];
+                popup_851f4b548cb1d8bd3b9aa3af4afe4a9e.setContent(html_67667f32f4f060648409ed5395a542f8);
+            
+        
+
+        circle_marker_bd89af661e62823f6c41062829b2dbba.bindPopup(popup_851f4b548cb1d8bd3b9aa3af4afe4a9e)
+        ;
+
+        
+    
+    
+            circle_marker_bd89af661e62823f6c41062829b2dbba.bindTooltip(
+                `<div>
+                     Sri Lanka
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_92fd2e1e5b6a7546f1b8610372311305 = L.circleMarker(
+                [12.86, 30.21],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.257142857142857, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_e24231dc2af58c726ce6365680385a7d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_88bddf098d73e25b18d4f02ad7bfb692 = $(`<div id="html_88bddf098d73e25b18d4f02ad7bfb692" style="width: 100.0%; height: 100.0%;"><b>Sudan</b><br>Avg AQI: <b>79</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 28</div>`)[0];
+                popup_e24231dc2af58c726ce6365680385a7d.setContent(html_88bddf098d73e25b18d4f02ad7bfb692);
+            
+        
+
+        circle_marker_92fd2e1e5b6a7546f1b8610372311305.bindPopup(popup_e24231dc2af58c726ce6365680385a7d)
+        ;
+
+        
+    
+    
+            circle_marker_92fd2e1e5b6a7546f1b8610372311305.bindTooltip(
+                `<div>
+                     Sudan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d695c06684e5fde36417955aa3d061be = L.circleMarker(
+                [60.12, 18.64],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_8566253b4afc5e89c38e93316cca33cd = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_249d8009cc7800722654ba7884d0518b = $(`<div id="html_249d8009cc7800722654ba7884d0518b" style="width: 100.0%; height: 100.0%;"><b>Sweden</b><br>Avg AQI: <b>36</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 97</div>`)[0];
+                popup_8566253b4afc5e89c38e93316cca33cd.setContent(html_249d8009cc7800722654ba7884d0518b);
+            
+        
+
+        circle_marker_d695c06684e5fde36417955aa3d061be.bindPopup(popup_8566253b4afc5e89c38e93316cca33cd)
+        ;
+
+        
+    
+    
+            circle_marker_d695c06684e5fde36417955aa3d061be.bindTooltip(
+                `<div>
+                     Sweden
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f065172c99b335a64c2963768bb88ce5 = L.circleMarker(
+                [46.81, 8.22],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_7b60dd4d5fd09ecf3abeec2e6ccd407d = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7b4fbcde1757da00484b75a41d752176 = $(`<div id="html_7b4fbcde1757da00484b75a41d752176" style="width: 100.0%; height: 100.0%;"><b>Switzerland</b><br>Avg AQI: <b>55</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 116</div>`)[0];
+                popup_7b60dd4d5fd09ecf3abeec2e6ccd407d.setContent(html_7b4fbcde1757da00484b75a41d752176);
+            
+        
+
+        circle_marker_f065172c99b335a64c2963768bb88ce5.bindPopup(popup_7b60dd4d5fd09ecf3abeec2e6ccd407d)
+        ;
+
+        
+    
+    
+            circle_marker_f065172c99b335a64c2963768bb88ce5.bindTooltip(
+                `<div>
+                     Switzerland
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a70a3e9d99024aa548739c4566bfdb62 = L.circleMarker(
+                [38.86, 71.27],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.680459770114942, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_50b0581211f534923348f4ac366c5aae = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_bacd069dcba32db5d3948b0192144de2 = $(`<div id="html_bacd069dcba32db5d3948b0192144de2" style="width: 100.0%; height: 100.0%;"><b>Tajikistan</b><br>Avg AQI: <b>115</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 29</div>`)[0];
+                popup_50b0581211f534923348f4ac366c5aae.setContent(html_bacd069dcba32db5d3948b0192144de2);
+            
+        
+
+        circle_marker_a70a3e9d99024aa548739c4566bfdb62.bindPopup(popup_50b0581211f534923348f4ac366c5aae)
+        ;
+
+        
+    
+    
+            circle_marker_a70a3e9d99024aa548739c4566bfdb62.bindTooltip(
+                `<div>
+                     Tajikistan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_93cd4bd2964e2d362343c51c2af05305 = L.circleMarker(
+                [15.87, 100.99],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_f56bb7210d2e76795b2990d72ccceba4 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_96f9455c3ce4cdd9fcb41b534de25de6 = $(`<div id="html_96f9455c3ce4cdd9fcb41b534de25de6" style="width: 100.0%; height: 100.0%;"><b>Thailand</b><br>Avg AQI: <b>54</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 246</div>`)[0];
+                popup_f56bb7210d2e76795b2990d72ccceba4.setContent(html_96f9455c3ce4cdd9fcb41b534de25de6);
+            
+        
+
+        circle_marker_93cd4bd2964e2d362343c51c2af05305.bindPopup(popup_f56bb7210d2e76795b2990d72ccceba4)
+        ;
+
+        
+    
+    
+            circle_marker_93cd4bd2964e2d362343c51c2af05305.bindTooltip(
+                `<div>
+                     Thailand
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_028a7973c2d3bcfc2b727edec4f9d692 = L.circleMarker(
+                [10.69, -61.22],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.3, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_28614a2cf07a64ce436fc9ecf292b0e8 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_cedea606fc0b736bb9994fb72804be2d = $(`<div id="html_cedea606fc0b736bb9994fb72804be2d" style="width: 100.0%; height: 100.0%;"><b>Trinidad and Tobago</b><br>Avg AQI: <b>94</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 8</div>`)[0];
+                popup_28614a2cf07a64ce436fc9ecf292b0e8.setContent(html_cedea606fc0b736bb9994fb72804be2d);
+            
+        
+
+        circle_marker_028a7973c2d3bcfc2b727edec4f9d692.bindPopup(popup_28614a2cf07a64ce436fc9ecf292b0e8)
+        ;
+
+        
+    
+    
+            circle_marker_028a7973c2d3bcfc2b727edec4f9d692.bindTooltip(
+                `<div>
+                     Trinidad and Tobago
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_025a5764064f51627b340aefe22847d6 = L.circleMarker(
+                [33.88, 9.53],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_f85152892ac06303dbe1324a6033f745 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_3d5e64b486c2c412a349f1495c833a32 = $(`<div id="html_3d5e64b486c2c412a349f1495c833a32" style="width: 100.0%; height: 100.0%;"><b>Tunisia</b><br>Avg AQI: <b>71</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 44</div>`)[0];
+                popup_f85152892ac06303dbe1324a6033f745.setContent(html_3d5e64b486c2c412a349f1495c833a32);
+            
+        
+
+        circle_marker_025a5764064f51627b340aefe22847d6.bindPopup(popup_f85152892ac06303dbe1324a6033f745)
+        ;
+
+        
+    
+    
+            circle_marker_025a5764064f51627b340aefe22847d6.bindTooltip(
+                `<div>
+                     Tunisia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b71094b3a9a63ad1410b66992b24805c = L.circleMarker(
+                [38.96, 35.24],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_84a77aa20b0b1be3be20ce7209323a43 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_7f0a3dce6fdf47f10bfcd5fb8fd0d420 = $(`<div id="html_7f0a3dce6fdf47f10bfcd5fb8fd0d420" style="width: 100.0%; height: 100.0%;"><b>Turkey</b><br>Avg AQI: <b>52</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 241</div>`)[0];
+                popup_84a77aa20b0b1be3be20ce7209323a43.setContent(html_7f0a3dce6fdf47f10bfcd5fb8fd0d420);
+            
+        
+
+        circle_marker_b71094b3a9a63ad1410b66992b24805c.bindPopup(popup_84a77aa20b0b1be3be20ce7209323a43)
+        ;
+
+        
+    
+    
+            circle_marker_b71094b3a9a63ad1410b66992b24805c.bindTooltip(
+                `<div>
+                     Turkey
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_93aba062d93e004436978b353c798a8d = L.circleMarker(
+                [38.96, 59.55],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.981481481481482, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_ebc6c743e568d67e9e556c453c576b42 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_0d727b9c2983241ac8a371ec8f659eaf = $(`<div id="html_0d727b9c2983241ac8a371ec8f659eaf" style="width: 100.0%; height: 100.0%;"><b>Turkmenistan</b><br>Avg AQI: <b>105</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 18</div>`)[0];
+                popup_ebc6c743e568d67e9e556c453c576b42.setContent(html_0d727b9c2983241ac8a371ec8f659eaf);
+            
+        
+
+        circle_marker_93aba062d93e004436978b353c798a8d.bindPopup(popup_ebc6c743e568d67e9e556c453c576b42)
+        ;
+
+        
+    
+    
+            circle_marker_93aba062d93e004436978b353c798a8d.bindTooltip(
+                `<div>
+                     Turkmenistan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0406e71a110f8c2e4995a26f7537069e = L.circleMarker(
+                [1.37, 32.29],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5.6878306878306875, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_a3b544bfb63c1b1a570a6d608f641b26 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_9c69f9914049547d9dc3fb05f9b2ca0a = $(`<div id="html_9c69f9914049547d9dc3fb05f9b2ca0a" style="width: 100.0%; height: 100.0%;"><b>Uganda</b><br>Avg AQI: <b>85</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 63</div>`)[0];
+                popup_a3b544bfb63c1b1a570a6d608f641b26.setContent(html_9c69f9914049547d9dc3fb05f9b2ca0a);
+            
+        
+
+        circle_marker_0406e71a110f8c2e4995a26f7537069e.bindPopup(popup_a3b544bfb63c1b1a570a6d608f641b26)
+        ;
+
+        
+    
+    
+            circle_marker_0406e71a110f8c2e4995a26f7537069e.bindTooltip(
+                `<div>
+                     Uganda
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b23466ff36aa2813b8c7ee06f597cb7d = L.circleMarker(
+                [48.37, 31.16],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_932ca091da924aad98df3090c04876a5 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_d392fdfb5d346230f2600342dc35c7a5 = $(`<div id="html_d392fdfb5d346230f2600342dc35c7a5" style="width: 100.0%; height: 100.0%;"><b>Ukraine</b><br>Avg AQI: <b>51</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 219</div>`)[0];
+                popup_932ca091da924aad98df3090c04876a5.setContent(html_d392fdfb5d346230f2600342dc35c7a5);
+            
+        
+
+        circle_marker_b23466ff36aa2813b8c7ee06f597cb7d.bindPopup(popup_932ca091da924aad98df3090c04876a5)
+        ;
+
+        
+    
+    
+            circle_marker_b23466ff36aa2813b8c7ee06f597cb7d.bindTooltip(
+                `<div>
+                     Ukraine
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3eca53b07a55c2cb61e3564b93276d5f = L.circleMarker(
+                [37.09, -95.71],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_0fcc5323bcf7c9090c2b4253f890df3b = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_f6eae2f9fd1c007d6f6332cc87cd15e2 = $(`<div id="html_f6eae2f9fd1c007d6f6332cc87cd15e2" style="width: 100.0%; height: 100.0%;"><b>United States of America</b><br>Avg AQI: <b>60</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 2872</div>`)[0];
+                popup_0fcc5323bcf7c9090c2b4253f890df3b.setContent(html_f6eae2f9fd1c007d6f6332cc87cd15e2);
+            
+        
+
+        circle_marker_3eca53b07a55c2cb61e3564b93276d5f.bindPopup(popup_0fcc5323bcf7c9090c2b4253f890df3b)
+        ;
+
+        
+    
+    
+            circle_marker_3eca53b07a55c2cb61e3564b93276d5f.bindTooltip(
+                `<div>
+                     United States of America
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_87636256d1caa0cf20922cfa488b2a8f = L.circleMarker(
+                [-32.52, -55.76],
+                {"bubblingMouseEvents": true, "color": "#2ecc71", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2ecc71", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_459597fe951348209e96e9dcc2600ce9 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_4c7c8ad092870357de87758ce0fdf07f = $(`<div id="html_4c7c8ad092870357de87758ce0fdf07f" style="width: 100.0%; height: 100.0%;"><b>Uruguay</b><br>Avg AQI: <b>27</b><br>Risk Zone: <b>Low Risk</b><br>Cities tracked: 26</div>`)[0];
+                popup_459597fe951348209e96e9dcc2600ce9.setContent(html_4c7c8ad092870357de87758ce0fdf07f);
+            
+        
+
+        circle_marker_87636256d1caa0cf20922cfa488b2a8f.bindPopup(popup_459597fe951348209e96e9dcc2600ce9)
+        ;
+
+        
+    
+    
+            circle_marker_87636256d1caa0cf20922cfa488b2a8f.bindTooltip(
+                `<div>
+                     Uruguay
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_25814511b1c6fdca8baab3e10cfbb3e5 = L.circleMarker(
+                [41.37, 64.58],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.939080459770115, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_46c70c252cac17ba11d0122b1a986136 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_eacd0eb7467b7a33f3d69ceabedf274b = $(`<div id="html_eacd0eb7467b7a33f3d69ceabedf274b" style="width: 100.0%; height: 100.0%;"><b>Uzbekistan</b><br>Avg AQI: <b>119</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 58</div>`)[0];
+                popup_46c70c252cac17ba11d0122b1a986136.setContent(html_eacd0eb7467b7a33f3d69ceabedf274b);
+            
+        
+
+        circle_marker_25814511b1c6fdca8baab3e10cfbb3e5.bindPopup(popup_46c70c252cac17ba11d0122b1a986136)
+        ;
+
+        
+    
+    
+            circle_marker_25814511b1c6fdca8baab3e10cfbb3e5.bindTooltip(
+                `<div>
+                     Uzbekistan
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_91ef04bd24e7d19b6fd5272d0fc755d8 = L.circleMarker(
+                [15.55, 48.51],
+                {"bubblingMouseEvents": true, "color": "#e74c3c", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e74c3c", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.63809523809524, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_3d2007e17c18346a97d10090cc33ec50 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_6ad90df170ed1891c0b12dddfbfa2935 = $(`<div id="html_6ad90df170ed1891c0b12dddfbfa2935" style="width: 100.0%; height: 100.0%;"><b>Yemen</b><br>Avg AQI: <b>145</b><br>Risk Zone: <b>Severe Risk</b><br>Cities tracked: 7</div>`)[0];
+                popup_3d2007e17c18346a97d10090cc33ec50.setContent(html_6ad90df170ed1891c0b12dddfbfa2935);
+            
+        
+
+        circle_marker_91ef04bd24e7d19b6fd5272d0fc755d8.bindPopup(popup_3d2007e17c18346a97d10090cc33ec50)
+        ;
+
+        
+    
+    
+            circle_marker_91ef04bd24e7d19b6fd5272d0fc755d8.bindTooltip(
+                `<div>
+                     Yemen
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0e7c70269d095fbe16ba95d22bca8018 = L.circleMarker(
+                [-19.01, 29.15],
+                {"bubblingMouseEvents": true, "color": "#f39c12", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#f39c12", "fillOpacity": 0.75, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_bc9be344f888bb2098df0a534966b3d9);
+        
+    
+        var popup_fd9beaa8a3a169d7ab23114c24c4cbc0 = L.popup({
+  "maxWidth": 200,
+});
+
+        
+            
+                var html_eaa6154e06c413adadf30cf710a0babe = $(`<div id="html_eaa6154e06c413adadf30cf710a0babe" style="width: 100.0%; height: 100.0%;"><b>Zimbabwe</b><br>Avg AQI: <b>44</b><br>Risk Zone: <b>Moderate Risk</b><br>Cities tracked: 27</div>`)[0];
+                popup_fd9beaa8a3a169d7ab23114c24c4cbc0.setContent(html_eaa6154e06c413adadf30cf710a0babe);
+            
+        
+
+        circle_marker_0e7c70269d095fbe16ba95d22bca8018.bindPopup(popup_fd9beaa8a3a169d7ab23114c24c4cbc0)
+        ;
+
+        
+    
+    
+            circle_marker_0e7c70269d095fbe16ba95d22bca8018.bindTooltip(
+                `<div>
+                     Zimbabwe
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
